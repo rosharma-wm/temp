@@ -1,0 +1,13 @@
+<% @article.each do |i|%>
+<h1> <%=i.id%>  <%= i.title%></h1>
+<p><%=i.description%></p>
+<p><%=i.author%></p>
+<p><b><%=i.price%></b></p>
+<br>
+<p><%=i.created_at%></p>
+<p><%=i.updated_at%></p>
+
+<button> create </button>
+<button> edit  </button>
+<button> save </button>
+<% end %>

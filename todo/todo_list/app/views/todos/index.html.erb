@@ -1,0 +1,13 @@
+<h1>list of todos</h1>
+<ul>
+<% @us.each do |u|%>
+<li>
+    <ol>
+        <li> <%=u.title%></li>
+        <li> <%=u.description%></li>
+    </ol>
+
+</li>
+<% end %>
+</ul>
+
