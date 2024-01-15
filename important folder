@@ -1,0 +1,80 @@
+*******************************************************************************************************
+UBUNTU COMMANDS
+sudo chown -R rosharma:rosharma warehouse/  :for changing the user access from the root to the user rosharm->user ,warehouse->directory
+ls -lah  :for checking the symlinking of the folder.
+lsof -i :port_number for getting the PID of that port
+kill PID :for killing the process and free the port
+ln -s ../../../sll-la/eportfolio/public assets :for smylinking 
+lsof -wni tcp:3000 for getting pid of port 3000
+kill -9 133186 killing pid 133186
+
+**************************************************************************************************************************************
+DOCKER COMMANDS
+docker images :for displaying all images
+docker ps :for displaying all running containers
+docker ps -a      :for displaying all the containers
+docker rm <container_name/id> :for removing container
+docker rmi <image_name/id> : for removing images
+
+sudo systemctl restart docker :restart docker
+sudo systemctl status docker :status of docker
+sudo systemctl start docker :start docker
+
+
+**********************************************************************************************************************************
+IMPORTANT LINKS:
+placement management overview : https://drive.google.com/drive/folders/1N5NaV_06-qyqJuuRh8XJMc06Zch_iO5z
+sll overview : https://drive.google.com/drive/folders/13eXdWEWeHerFTUy9FY2hMmIlx9xCNQ_C
+https://docs.google.com/document/d/1_x9PH1CIfeootjD6GKNuHWkc8nrA_nnT-rX3w5FSsNM/edit#heading=h.ot76su73mrim pta nhi kiska link h
+
+*************************************************************************************************************************************
+
+changes to be made after cloning sll // unable to get the database from postgresql
+
+Resolving Eportfolio Development Database Creation
+Step 1: Open sll-la-insights folder.
+Step 2: then find restore_db.sh file inside the lib folder.
+Step 3: run docker ps command on terminal and there you will get find sll-base-db-1 in Names 
+column.
+Step 4: then in restore_db.sh file on line number 26 db_container_id=`docker ps|grep base_db_1|
+awk '{print $1}'` .
+Step 5: replace base_db_1 with  sll-base-db-1 .
+Step 6: run bundle exec rake ETL:reset
+Step 7: then run this command on terminal docker ps|grep sll-base-db-1|awk '{print $1}'
+
+***************************************************************************************************************************************
+START RUBYMINE 
+cd Downloads/
+cd RubyMine-2023.2.3/bin
+./rubymine.sh
+
+
+********************************************************************************************************
+networking of laptop
+
+sudo systemctl restart networking
+sudo systemctl status systemd-networkd
+sudo systemctl enable systemd-networkd
+sudo systemctl start systemd-networkd
+sudo systemctl restart systemd-networkd
+
+*****************************************************************************************************************************
+SLL IMPORTANT
+we have to connect infra with sll-la 
+sll-infra: yarn link 
+sll-la/eportfolio: yarn link sll-infra
+
+sll-infra
+yarn run dev
+yarn start
+
+
+service docker restart :restarting docker services , rijul nginx not working solution
+
+***************************************************************************************************************************
+Jenkins:
+sudo service jenkins start
+sudo service jenkins stop 
+
+
+
